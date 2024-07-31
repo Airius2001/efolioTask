@@ -45,8 +45,8 @@
       <!-- Activity 9: Render a list of Austen's works. Hint: Use the v-for directive to iterate through the array of authors that you have filtered out. -->
       <!-- TODO: CODE TO RENDER LIST OF AUSTEN'S WORKS HERE -->
       <ul>
-        <li v-for="austenWork in austen.famousWorks" :key="austenWork">
-          {{ austenWork }}
+        <li v-for="(title) in austen.famousWorks">
+          {{ title }}
         </li>
       </ul>
       
@@ -61,7 +61,11 @@
         Company:
         <!-- Activity 9a: Get the company name from the bookstores object. -->
         <!-- TODO: CODE TO GET COMPANY NAME HERE -->
-        {{ bookstores.name }}
+        <ul>
+          <li>
+            {{ bookstores.name }}
+          </li>
+      </ul>
 
       </p>
 
@@ -69,26 +73,59 @@
         Total Stores:
         <!-- Activity 9b: Get the total number of stores from the bookstores object. -->
         <!-- TODO: CODE TO GET TOTAL STORES HERE -->
+      <ul>
+          <li>
+            {{ bookstores.totalStores }}
+          </li>
+      </ul>
 
 
 
       </p>
 
       <h3>Iterating Object Properties</h3>
-      <p>Store Types:</p>
+      <p>Store Types:
       <!-- Activity 10: Iterate through the storeTypes array and display the store type and the number of stores that use that type. -->
       <!-- TODO: CODE TO RENDER LIST OF STORE TYPES HERE -->
+      <ul>
+        <li v-for="(number, storeTypes) in bookstores.storeTypes" :key="storeTypes">
+          {{ storeTypes }}: {{ number }}
+        </li>
+      </ul>
+
+      </p>
+      
+
+      
 
       <h3>Nested Objects</h3>
-      <p>Opening Hours:</p>
+      <p>Opening Hours:
       <!-- Activity 11: Iterate through the openingHours object and display the day of the week and the opening and closing times. -->
       <!-- TODO: CODE TO RENDER LIST OF OPENING HOURS HERE -->
+      <ul>
+        <li v-for="(index, dayType) in bookstores.openingHours">
+          {{ dayType }}: {{ index }}
+        </li>
+      </ul>
+
+      </p>
+      
+
+      
 
       <h3>Working with Arrays in Objects</h3>
       <!-- Activity 12: Get the top sellers from the bookstores object. -->
       <!-- TODO: CODE TO GET TOP SELLERS HERE -->
       <p>We operate in:</p>
-      <p>Our #1 seller:</p>
+      <p>Our #1 seller:
+        <ul>
+          <li v-for="topSells in bookstores.topSellers">
+            {{ topSells }}
+          </li>
+        </ul>
+
+
+      </p>
     </section>
 
     <section class="lab-section">

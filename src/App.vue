@@ -2,6 +2,7 @@
 import HelloWorld from './components/HelloWorld.vue'
 import TheWelcome from './components/TheWelcome.vue'
 import MyName from './components/MyName.vue'
+import JSON from './components/JSON.vue'
 </script>
 
 <template>
@@ -21,6 +22,11 @@ import MyName from './components/MyName.vue'
   <main>
     <TheWelcome />
   </main>
+
+  <main>
+    <JSON/>
+  </main>
+
 </template>
 
 <style scoped>
