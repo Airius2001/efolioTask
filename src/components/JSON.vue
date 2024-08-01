@@ -11,7 +11,7 @@
       <!-- Activity 6: Render a list containing author names and their birth years. Hint: Make use of the v-for directive to iterate through the array of authors. -->
       <!-- TODO: CODE TO RENDER LIST OF AUTHORS HERE -->
       <ul>
-        <li v-for="author in authors" :key="author.id" :class="{ highlight: author.name === 'Jane Austen' }">
+        <li v-for="author in authors" :key="author.id" v-bind:class="{ highlight: author.name === 'Jane Austen' }">
           {{ author.name }} ({{ author.birthYear }})
         </li>
       </ul>
@@ -21,7 +21,7 @@
       <p>Authors born after 1850:</p>
       <!-- TODO: CODE TO RENDER LIST OF AUTHORS HERE -->
       <ul>
-        <li v-for="author in modernAuthors" :key="author.id" :class="{ highlight: author.name === 'Jane Austen' }"> 
+        <li v-for="author in modernAuthors" :key="author.id" v-bind:class="{ highlight: author.name === 'Jane Austen' }"> 
         {{ author.name }} ({{ author.birthYear }})
         </li>
       </ul>
@@ -134,7 +134,7 @@
       <p>Highlighting Specific Authors: Jane Austen</p>
 
       <ul>
-        <li v-for="author in authors" :key="author.id" :class="{ highlight: author.id === 1 }">
+        <li v-for="author in authors" :key="author.id" v-bind:class="{ highlight: author.id === 1 }">
           {{ author.name }}
         </li>
       </ul>
