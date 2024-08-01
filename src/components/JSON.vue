@@ -11,7 +11,7 @@
       <!-- Activity 6: Render a list containing author names and their birth years. Hint: Make use of the v-for directive to iterate through the array of authors. -->
       <!-- TODO: CODE TO RENDER LIST OF AUTHORS HERE -->
       <ul>
-        <li v-for="author in authors" :key="author.id">
+        <li v-for="author in authors" :key="author.id" :class="{ highlight: author.name === 'Jane Austen' }">
           {{ author.name }} ({{ author.birthYear }})
         </li>
       </ul>
@@ -21,7 +21,7 @@
       <p>Authors born after 1850:</p>
       <!-- TODO: CODE TO RENDER LIST OF AUTHORS HERE -->
       <ul>
-        <li v-for="author in modernAuthors" :key="author.id"> 
+        <li v-for="author in modernAuthors" :key="author.id" :class="{ highlight: author.name === 'Jane Austen' }"> 
         {{ author.name }} ({{ author.birthYear }})
         </li>
       </ul>
@@ -38,15 +38,15 @@
       </ul>
 
       <h3>Finding in Arrays</h3>
-      <p>Finding by property: {{ orwell?.name }}</p>
+      <p :class="{ highlight: orwell?.name === 'Jane Austen' }">Finding by property: {{ orwell?.name }}</p>
 
       <h3>Nested Arrays/Objects</h3>
       <p>{{ austen?.name }}'s works:</p>
       <!-- Activity 9: Render a list of Austen's works. Hint: Use the v-for directive to iterate through the array of authors that you have filtered out. -->
       <!-- TODO: CODE TO RENDER LIST OF AUSTEN'S WORKS HERE -->
       <ul>
-        <li v-for="(title) in austen.famousWorks">
-          {{ title }}
+        <li v-for="work in austen?.famousWorks" :key="work.title">
+          {{ work.title }}
         </li>
       </ul>
       
@@ -73,12 +73,11 @@
         Total Stores:
         <!-- Activity 9b: Get the total number of stores from the bookstores object. -->
         <!-- TODO: CODE TO GET TOTAL STORES HERE -->
-      <ul>
+        <ul>
           <li>
             {{ bookstores.totalStores }}
           </li>
       </ul>
-
 
 
       </p>
@@ -93,39 +92,31 @@
         </li>
       </ul>
 
-      </p>
-      
 
-      
+      </p>
+ 
 
       <h3>Nested Objects</h3>
-      <p>Opening Hours:
+      <p>Opening Hours:</p>
       <!-- Activity 11: Iterate through the openingHours object and display the day of the week and the opening and closing times. -->
       <!-- TODO: CODE TO RENDER LIST OF OPENING HOURS HERE -->
       <ul>
         <li v-for="(index, dayType) in bookstores.openingHours">
           {{ dayType }}: {{ index }}
         </li>
-      </ul>
-
-      </p>
-      
+      </ul>      
 
       
-
       <h3>Working with Arrays in Objects</h3>
       <!-- Activity 12: Get the top sellers from the bookstores object. -->
       <!-- TODO: CODE TO GET TOP SELLERS HERE -->
       <p>We operate in:</p>
-      <p>Our #1 seller:
-        <ul>
-          <li v-for="topSells in bookstores.topSellers">
-            {{ topSells }}
-          </li>
-        </ul>
-
-
-      </p>
+      <p>Our #1 seller:</p>
+      <ul>
+        <li v-for="topSells in bookstores.topSellers">
+          {{ topSells }}
+        </li>
+      </ul>
     </section>
 
     <section class="lab-section">
@@ -140,8 +131,13 @@
 
     <section class="lab-section">
       <h2>Attribute, Class and Style Binding with <code>v-bind</code></h2>
-      <p>Highlighting Specific Authors:</p>
+      <p>Highlighting Specific Authors: Jane Austen</p>
 
+      <ul>
+        <li v-for="author in authors" :key="author.id" :class="{ highlight: author.id === 1 }">
+          {{ author.name }}
+        </li>
+      </ul>
     </section>
   </div>
 </template>
@@ -176,6 +172,11 @@ const austen = computed(() => {
   // TODO: CODE TO FIND AUTHOR BY ID HERE
   return authors.find(author => author.id === 1);
 })
+
+function isAustenWork(workTitle) {
+  const austenAuthor = authors.find(author => author.name === 'Jane Austen');
+  return austenAuthor.famousWorks.some(work => work.title === workTitle);
+}
 </script>
 
 <style scoped>
