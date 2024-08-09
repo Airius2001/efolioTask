@@ -3,7 +3,11 @@
 // import TheWelcome from './components/TheWelcome.vue'
 // import MyName from './components/MyName.vue'
 // import JSON from './components/JSON.vue'
+// import { Button } from 'bootstrap';
 import Form from './components/Form.vue'
+import Button from './components/Button.vue';
+
+
 </script>
 
 <template>
@@ -29,7 +33,34 @@ import Form from './components/Form.vue'
   </main> -->
 
   <Form />
+  <!-- <Button></Button> -->
+
+  <div id="app">
+    <Button
+      label="Submit"
+      color="primary"
+      size="small"
+      :disabled="false"
+      @click="handleButtonClick"
+      style="outlined"
+    />
+  </div>
+
 </template>
+
+<script>
+export default {
+  name: 'App',
+  components: {
+    Button
+  },
+  methods: {
+    handleButtonClick() {
+      console.log('Button clicked');
+    }
+  }
+}
+</script>
 
 <!-- <style scoped>
 header {
