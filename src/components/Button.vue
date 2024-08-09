@@ -1,6 +1,6 @@
 <template>
   <button
-    :class="buttonClasses"
+    :style="buttonStyles"
     :disabled="disabled"
     @click="handleClick"
   >
@@ -40,13 +40,52 @@ export default {
     }
   },
   computed: {
-    buttonClasses() {
-      return [
-        'btn',
-        `btn-${this.color}`,
-        `btn-${this.size}`,
-        this.style === 'outlined' ? 'btn-outline' : ''
-      ].join(' ');
+    buttonStyles() {
+      const colors = {
+        primary: '#007bff',
+        secondary: '#6c757d',
+        success: '#28a745',
+        danger: '#dc3545',
+        warning: '#ffc107',
+        info: '#17a2b8',
+        light: '#f8f9fa',
+        dark: '#343a40'
+      };
+
+      const sizeStyles = {
+        small: {
+          padding: '0.25rem 0.5rem',
+          fontSize: '0.875rem'
+        },
+        medium: {
+          padding: '0.5rem 1rem',
+          fontSize: '1rem'
+        },
+        large: {
+          padding: '0.75rem 1.5rem',
+          fontSize: '1.25rem'
+        }
+      };
+
+      const style = this.style === 'outlined'
+        ? {
+            background: 'none',
+            border: `1px solid ${colors[this.color]}`,
+            color: colors[this.color]
+          }
+        : {
+            background: colors[this.color],
+            border: 'none',
+            color: '#fff'
+          };
+
+      return {
+        ...style,
+        ...sizeStyles[this.size],
+        cursor: this.disabled ? 'not-allowed' : 'pointer',
+        opacity: this.disabled ? 0.65 : 1,
+        borderRadius: '0.25rem'
+      };
     }
   },
   methods: {
@@ -59,24 +98,3 @@ export default {
 }
 </script>
 
-<style scoped>
-.btn-small {
-  padding: 0.25rem 0.5rem;
-  font-size: 0.875rem;
-}
-
-.btn-medium {
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-}
-
-.btn-large {
-  padding: 0.75rem 1.5rem;
-  font-size: 1.25rem;
-}
-
-.btn-outline {
-  background: none;
-  border: 1px solid currentColor;
-}
-</style>

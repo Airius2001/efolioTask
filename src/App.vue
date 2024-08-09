@@ -36,6 +36,7 @@ import Button from './components/Button.vue';
   <!-- <Button></Button> -->
 
   <div id="app">
+    <P>This is challenge task's button </P>
     <Button
       label="Submit"
       color="primary"
