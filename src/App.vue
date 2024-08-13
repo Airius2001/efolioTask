@@ -35,7 +35,7 @@ import Button from './components/Button.vue';
   <Form />
   <!-- <Button></Button> -->
 
-  <div id="app">
+  <!-- <div id="app">
     <P>This is challenge task's button </P>
     <Button
       label="Submit"
@@ -45,7 +45,7 @@ import Button from './components/Button.vue';
       @click="handleButtonClick"
       style="outlined"
     />
-  </div>
+  </div> -->
 
 </template>
 
