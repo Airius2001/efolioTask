@@ -6,6 +6,8 @@
 // import { Button } from 'bootstrap';
 import Form from './components/Form.vue'
 import Button from './components/Button.vue';
+import Form_Zod from './components/Form_Zod.vue';
+import Form_blur_function from './components/Form_blur_function.vue';
 
 
 </script>
@@ -31,8 +33,13 @@ import Button from './components/Button.vue';
   <!-- <main>
     <JSON/>
   </main> -->
+  <Form></Form>
+  This is challenge task, by using Zod library to do validation
+  <Form_Zod></Form_Zod>
 
-  <Form />
+
+  This is challenge task, by using blur function
+  <Form_blur_function />
   <!-- <Button></Button> -->
 
   <!-- <div id="app">
