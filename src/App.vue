@@ -4,10 +4,11 @@
 // import MyName from './components/MyName.vue'
 // import JSON from './components/JSON.vue'
 // import { Button } from 'bootstrap';
-import Form from './components/Form.vue'
+import Form from './components/Form.vue';
 import Button from './components/Button.vue';
 import Form_Zod from './components/Form_Zod.vue';
 import Form_blur_function from './components/Form_blur_function.vue';
+import Form_Veevalidate from './components/Form_Veevalidate.vue'
 
 
 </script>
@@ -34,12 +35,15 @@ import Form_blur_function from './components/Form_blur_function.vue';
     <JSON/>
   </main> -->
   <Form></Form>
-  This is challenge task, by using Zod library to do validation
+  This is challenge task 1, by using Zod library to do validation
   <Form_Zod></Form_Zod>
 
 
-  This is challenge task, by using blur function
+  This is challenge task 2, by using blur function
   <Form_blur_function />
+
+  This is challenge task 3, by using vee-validate library to do validation 
+<Form_Veevalidate></Form_Veevalidate>
   <!-- <Button></Button> -->
 
   <!-- <div id="app">
