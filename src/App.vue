@@ -42,7 +42,7 @@ import Form_Veevalidate from './components/Form_Veevalidate.vue'
   This is challenge task 2, by using blur function
   <Form_blur_function />
 
-  This is challenge task 3, by using vee-validate library to do validation 
+  This is challenge task 3, by using vee-validate library to do validation  test
 <Form_Veevalidate></Form_Veevalidate>
   <!-- <Button></Button> -->
 
